@@ -1,8 +1,8 @@
 from django.db import models
 
 class Squirrel(models.Model):
-    X = models.FloatField()
-    Y = models.FloatField()
+    Latitude = models.FloatField()
+    Longitude = models.FloatField()
     Unique_Squirrel_ID = models.CharField(max_length=20,primary_key=True)
 
     AM = 'AM'
