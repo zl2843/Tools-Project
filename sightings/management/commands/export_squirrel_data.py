@@ -61,3 +61,4 @@ class Command(BaseCommand):
                         obj.indifferent,
                         obj.runs_from,]
                 writer.writerow(data)
+
