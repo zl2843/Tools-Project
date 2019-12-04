@@ -9,10 +9,11 @@ def all_squirrels(request):
             'Squirrels': squirrels
             }
     return render(request, 'sightings/all.html', context)
+    #return HttpResponse('Hi There')
 
-def details(request, Unique_Squirrel_ID):
+def details(request, pk):
     try:
-        squirrel = Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
+        squirrel = Squirrel.objects.get(pk=Unique_Squirrel_ID)
     except Squirrel.DoesNotExist:
         raise Http404("Squirrel Does Not Exist")
     return render(request, 'sightings/details.html', {'squirrel': squirrel})

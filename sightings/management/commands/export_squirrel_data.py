@@ -5,7 +5,7 @@ import csv
 class Command(BaseCommand):
     help = 'Export a csv file'
     def add_arguments(self, parser):
-        parser.add_argument('path', type=str)
+        parser.add_argument('path', nargs='+', type=str)
 
     def handle(self, *args, **kwargs):
         path = kwargs['path']
