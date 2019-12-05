@@ -5,20 +5,24 @@ class Squirrel(models.Model):
     latitude = models.FloatField(
             help_text=_('Latitude of Sighting'),
             )
+
     longitude = models.FloatField(
             help_text=_('Longitude of Sighting'),
             )
-    squirrel_id = models.CharField(max_length=20,primary_key=True,help_text=_("Unique Squirrel ID. If the ID already exist, sighting won't be add"),)
+
+    squirrel_id = models.CharField(max_length=20,primary_key=True,help_text=_("Unique Squirrel ID. If the ID already exist, sighting won't be added"),)
 
     AM = 'AM'
     PM = 'PM'
+
     SHIFT_CHOICES = (
         (AM, 'AM'),
         (PM, 'PM'),
     )
+
     shift = models.CharField(
         max_length=2,
-        choices=Shift_Choices,
+        choices=SHIFT_CHOICES,
         default=AM,
         help_text=_("Sighting session"),
     )
@@ -33,6 +37,7 @@ class Squirrel(models.Model):
         (JUVENILE,'Juvenile'),
         ('',''),
     )
+    
     age = models.CharField(
         max_length=10,
         choices=AGE_CHOICES,
@@ -51,10 +56,13 @@ class Squirrel(models.Model):
         (BLACK,'Black'),
         ('',''),
     )
+    
     fur_color = models.CharField(
         max_length=20,
-        choices=Fur_Choices,
-        default=Other_Color,
+        choices=FUR_CHOICES,
+        default=GRAY,
+        help_text=_('Fur color of Squirrel'),
+        null=True
     )
 
     GROUND_PLANE = 'Ground Plane'
@@ -62,14 +70,14 @@ class Squirrel(models.Model):
     
 
     LOC_CHOICES = (
-        (GROUND_PLANE,'Ground_plane'),
-        (ABOVE_GROUND,'Above_Ground'),
+        (GROUND_PLANE,'Ground Plane'),
+        (ABOVE_GROUND,'Above Ground'),
         ('',''),
     )
 
     location = models.CharField(
         max_length=30,   
-        choices=Location_Choices,
+        choices=LOC_CHOICES,
         default=GROUND_PLANE,
         help_text=_("Location of Squirrel"),
         null=True,
@@ -81,7 +89,7 @@ class Squirrel(models.Model):
     climbing = models.BooleanField(default=False,)
     eating = models.BooleanField(default=False,)
     foraging = models.BooleanField(default=False)
-    other_activities = models.TextField(max_length=200)
+    other_activities = models.CharField(max_length=200, null=True, blank=True, help_text=_("Other Activity"),)
     kuks = models.BooleanField(default=False,)
     quaas = models.BooleanField(default=False,)
     moans = models.BooleanField(default=False,)
