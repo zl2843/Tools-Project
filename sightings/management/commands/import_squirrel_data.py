@@ -10,7 +10,6 @@ class Command(BaseCommand):
     def handle(self,*arg,**options):
         import csv
         import datetime
-        from  tracker.models import Sighting
         path=str(options['csv_file'][0])
         with open(path) as f:
             data=csv.reader(f)
@@ -25,7 +24,7 @@ class Command(BaseCommand):
                         line[i]= True
 
                 line[5]=datetime.datetime.strptime(line[5],"%m%d%Y").strftime("%Y-%m-%d")
-                sighting= Sighting(latitude=line[1],
+                sighting= Squirrel(latitude=line[1],
                         longitude=line[0],
                         squirrel_id=line[2],
                         shift=line[4],

@@ -18,5 +18,11 @@ def details(request, pk):
         raise Http404("Squirrel Does Not Exist")
     return render(request, 'sightings/details.html', {'squirrel': squirrel})
 
+def squirrel_map(request, template_name='sightings//map.html'):
+    squirrels = Squirrel.objects.order_by('?')[:100]
+    context = {
+            'squirrels' : squirrels,
+            }
+    return render(request, template_name, context)
 
 # Create your views here.
