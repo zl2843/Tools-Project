@@ -7,8 +7,8 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('path', nargs='+', type=str)
 
-    def handle(self, *args, **kwargs):
-        path = kwargs['path']
+    def handle(self, *args, **options):
+        path = str(options['path'])
         with open(path, 'w') as f:
             writer = csv.writer(f)
             header = ['latitude',

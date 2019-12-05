@@ -2,13 +2,9 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Squirrel(models.Model):
-    latitude = models.FloatField(
-            help_text=_('Latitude of Sighting'),
-            )
+    latitude = models.FloatField()
 
-    longitude = models.FloatField(
-            help_text=_('Longitude of Sighting'),
-            )
+    longitude = models.FloatField()
 
     squirrel_id = models.CharField(max_length=20,primary_key=True,help_text=_("Unique Squirrel ID. If the ID already exist, sighting won't be added"),)
 
@@ -27,7 +23,7 @@ class Squirrel(models.Model):
         help_text=_("Sighting session"),
     )
 
-    date = models.DateField(help_text=_("Sighting date in YYYY-MM-DD format"),)
+    date = models.DateField("Date")
 
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
