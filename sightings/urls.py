@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
         path('', views.all_squirrels),
-        path('<Unique_Squirrel_ID>/', views.details),
+        path('add/', views.add_squirrel),
+        path('edit/', views.edit_squirrel),
         ]
 

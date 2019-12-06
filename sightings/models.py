@@ -2,10 +2,17 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Squirrel(models.Model):
+    
+    squirrel_id = models.CharField(max_length=20,primary_key=True,help_text=_("Gives Unique Squirrel ID. Sighting added only if the ID does not already exist"),)
 
     AM = 'AM'
     PM = 'PM'
-
+    
+    SHIFT_CHOICES = (
+        (AM, 'AM'),
+        (PM, 'PM'),
+    )
+    
     latitude = models.FloatField(
             help_text=_('Gives the Latitude of Sighting'),
             )
@@ -13,13 +20,7 @@ class Squirrel(models.Model):
     longitude = models.FloatField(
             help_text=_('Gives the Longitude of Sighting'),
             )
-
-    squirrel_id = models.CharField(max_length=20,primary_key=True,help_text=_("Gives Unique Squirrel ID. Sighting added only if the ID does not already exist"),)
-
-    SHIFT_CHOICES = (
-        (AM, 'AM'),
-        (PM, 'PM'),
-    )
+     
 
     shift = models.CharField(
         max_length=2,
@@ -43,7 +44,7 @@ class Squirrel(models.Model):
         max_length=10,
         choices=AGE_CHOICES,
         default=ADULT,
-        help_text=_("Age of Squirrel - Adult or Juvenile    "),
+        help_text=_("Age of Squirrel - Adult or Juvenile"),
         null=True,
     )
 
