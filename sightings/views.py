@@ -14,11 +14,8 @@ def all_squirrels(request):
     #return HttpResponse('Hi There')
 
 def details(request, squirrel_id):
-    try:
-        squirrel = Squirrel.objects.get(pk=squirrel_id)
-    except Squirrel.DoesNotExist:
-        raise Http404("Squirrel Does Not Exist")
-    return render(request, 'sightings/details.html', {'squirrel': squirrel})
+    squirrel = Squirrel.objects.get(pk=squirrel_id)
+    return HttpResponse(squirrel.squirrel_id)
 
 def edit_squirrel(request, squirrel_id):
     squirrel = Squirrel.objects.get(pk=squirrel_id)
