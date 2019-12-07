@@ -1,9 +1,7 @@
-{% if squirrels %}
-    <ul>
+<li><a href="/sightings/add"> Add New Sighting</a></li>
+<ul>
     {% for squirrel in all_squirrels %}
-        <li><a href="/sightings/{{ Unique_Squirrel_ID }}/">{{ squirrel.Unique_Squirrel_ID }}</a></li>
+    <li><a href="/sightings/{{squirrel.squirrel_id }}/">{{squirrel.squirrel_id }}</a></li>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>This Squirrel Does Not Exist.</p>
-{% endif %}
+</ul>
+
