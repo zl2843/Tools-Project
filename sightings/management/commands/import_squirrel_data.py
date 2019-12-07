@@ -5,7 +5,7 @@ class Command(BaseCommand):
     help = 'Import CSV'
 
     def add_arguments(self,path):
-                path.add_argument('csv_file',nargs='+',type=str)
+        path.add_argument('csv_file',nargs='+',type=str)
 
     def handle(self,*arg,**options):
         import csv
