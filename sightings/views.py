@@ -46,7 +46,7 @@ def add_squirrel(request):
     return render(request, 'sightings/edit.html', context)
 
 def squirrel_map(request):
-    squirrels = Squirrel.objects.order_by('?')[:100]
+    squirrels = Squirrel.objects.all()
     context = {
             'squirrels' : squirrels,
             }

@@ -18,7 +18,7 @@ class Command(BaseCommand):
             data = list(reader)
             
             for line in data:
-
+                line['Date'] = line['Date'][4:] + '-' + line['Date'][0:2] + '-' + line['Date'][2:4]
                 sighting= Squirrel(
                         latitude=line['Y'],
                         longitude=line['X'],
