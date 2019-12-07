@@ -29,7 +29,7 @@ class Squirrel(models.Model):
         help_text=_("Gives the time of sighting occurence - AM or PM"),
     )
 
-    date = models.DateField(help_text=_("Gives the date of sighting in YYYY-MM-DD format"),)
+    date = models.IntegerField(help_text=_("Gives the date of sighting in YYYY-MM-DD format"),)
 
     ADULT = 'Adult'
     JUVENILE = 'Juvenile'
