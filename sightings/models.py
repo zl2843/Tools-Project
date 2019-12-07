@@ -64,7 +64,7 @@ class Squirrel(models.Model):
         choices=FUR_CHOICES,
         default=GRAY,
         help_text=_('Gives Fur color of the Squirrel'),
-        null=True
+        null=True,
     )
 
     GROUND_PLANE = 'Ground Plane'
