@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 def all_squirrels(request):
     squirrels = Squirrel.objects.all()
     context = {
-            'Squirrels': squirrels
+            'squirrels': squirrels
             }
     return render(request, 'sightings/all.html', context)
 
@@ -50,6 +50,6 @@ def squirrel_map(request):
     context = {
             'squirrels' : squirrels,
             }
-    return rener(request, 'sightings/map.html', context)
+    return render(request, 'sightings/map.html', context)
 
 # Create your views here.
