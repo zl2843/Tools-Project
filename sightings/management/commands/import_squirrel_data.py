@@ -8,6 +8,7 @@ class Command(BaseCommand):
     def add_arguments(self,parser):
         parser.add_argument('csv_file')
 
+
     def handle(self,*arg,**options):
         import csv
         import datetime
