@@ -1,51 +1,46 @@
+import csv
 from django.core.management.base import BaseCommand, CommandError
 from sightings.models import Squirrel
+from distutils.util import strtobool
 
 class Command(BaseCommand):
-    help = 'Import CSV'
 
-    def add_arguments(self,path):
-                path.add_argument('csv_file',nargs='+',type=str)
+    def add_arguments(self,parser):
+        parser.add_argument('csv_file')
 
     def handle(self,*arg,**options):
         import csv
         import datetime
-        path=str(options['csv_file'][0])
+        path=options['csv_file']
         with open(path) as f:
-            data=csv.reader(f)
-            next(data)
-            counter=0
+            reader = csv.DictReader(f)
+            data = list(reader)
             
             for line in data:
-                for i in (15,16,17,18,19,21,22,23,24,25,26,27,28):
-                    if line[i]=='false':
-                        line[i]= False
-                    else:
-                        line[i]= True
 
-                line[5]=datetime.datetime.strptime(line[5],"%m%d%Y").strftime("%Y-%m-%d")
-                sighting= Squirrel(latitude=line[1],
-                        longitude=line[0],
-                        squirrel_id=line[2],
-                        shift=line[4],
-                        date=line[5],
-                        age=line[7],
-                        fur_color=line[8],
-                        location=line[12],
-                        specific_location=line[14],
-                        running=line[15],
-                        chasing=line[16],
-                        climbing=line[17],
-                        eating=line[18],
-                        foraging=line[19],
-                        other_activities=line[20],
-                        kuks=line[21],
-                        quaas=line[22],
-                        moans=line[23], 
-                        tail_flags=line[24],
-                        tail_twitches=line[25],
-                        approaches=line[26],
-                        indifferent=line[27],
-                        runs_from=line[28],)
+                sighting= Squirrel(
+                        latitude=line['Y'],
+                        longitude=line['X'],
+                        squirrel_id=line['Unique Squirrel ID'],
+                        shift=line['Shift'],
+                        date=line['Date'],
+                        age=line['Age'],
+                        fur_color=line['Primary Fur Color'],
+                        location=line['Location'],
+                        specific_location=line['Specific Location'],
+                        running=strtobool(line['Running']),
+                        chasing=strtobool(line['Chasing']),
+                        climbing=strtobool(line['Climbing']),
+                        eating=strtobool(line['Eating']),
+                        foraging=strtobool(line['Foraging']),
+                        other_activities=line['Other Activities'],
+                        kuks=strtobool(line['Kuks']),
+                        quaas=strtobool(line['Quaas']),
+                        moans=strtobool(line['Moans']), 
+                        tail_flags=strtobool(line['Tail flags']),
+                        tail_twitches=strtobool(line['Tail twitches']),
+                        approaches=strtobool(line['Approaches']),
+                        indifferent=strtobool(line['Indifferent']),
+                        runs_from=strtobool(line['Runs from']),)
 
                 sighting.save()
