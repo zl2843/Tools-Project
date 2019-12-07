@@ -11,7 +11,6 @@ def all_squirrels(request):
             'Squirrels': squirrels
             }
     return render(request, 'sightings/all.html', context)
-    #return HttpResponse('Hi There')
 
 def details(request, squirrel_id):
     squirrel = Squirrel.objects.get(pk=squirrel_id)
