@@ -4,9 +4,10 @@
 To build an application to keep track of all the known squirrels(their location, activities and behavior) in Central Park, New York
 
 ## About the contributors
-Project Group 49 <br>
+Project Group 49 Section 1<br>
 Aditi Garg - ag4211 <br>
-Zhiheng Ling - zl2843
+Zhiheng Ling - zl2843 <br>
+List of UNIs : [ag4211, zl2843]
 
 ## About the tool
 The tools consists of the following functions:
