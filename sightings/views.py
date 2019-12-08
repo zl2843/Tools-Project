@@ -84,5 +84,7 @@ def stats(request):
             }
 
     return render(request, 'sightings/stat.html', context)
-    
+
+def home(request):
+    return render(request, 'sightings/home.html')
 # Create your views here.

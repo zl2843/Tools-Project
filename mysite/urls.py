@@ -21,4 +21,5 @@ urlpatterns = [
     path('sightings/', include('sightings.urls')),
     path('map/', views.squirrel_map),
     path('admin/', admin.site.urls),
+    path('', views.home, name="home"),
 ]
