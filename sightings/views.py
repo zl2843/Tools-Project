@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Squirrel
 from django.http import Http404
 from .forms import SquirrelForm
-from django.shortcuts import redirect
 
 def all_squirrels(request):
     squirrels = Squirrel.objects.all()
@@ -22,7 +21,9 @@ def edit_squirrel(request, squirrel_id):
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            return redirect('/sightings')
+            return redirect('/sightings/')
+        else:
+            return HttpResponse('Invalid Data! e.g. Please check the format of the Date')
     else:
         form = SquirrelForm(instance=squirrel)
 
@@ -38,6 +39,8 @@ def add_squirrel(request):
         if form.is_valid():
             form.save()
             return redirect('/sightings')
+        else:
+            return HttpResponse('Invalid Data! e.g. Please check the format of the Date')
 
     else:
         form = SquirrelForm()
