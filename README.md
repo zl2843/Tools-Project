@@ -30,5 +30,7 @@ Using this application, the user can
  - Look at overview stats of the entire squirrel population
  Thus the tool acts as a comprehensive web based application to keep track of the behavior of squirrels in the given location
  
-## Behavior of the tool
-
+ ## Github Link 
+     git@github.com:zl2843/Squirrel-Tracker.git
+ ## Link to the server 
+     
