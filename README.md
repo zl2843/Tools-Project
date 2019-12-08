@@ -10,13 +10,13 @@ Zhiheng Ling - zl2843
 
 ## About the tool
 The tools consists of the following functions:
-# 1. Import function
+### 1. Import function
 The import function imports the 2018 Central Park Squirrel Census (link : https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw)
 
-# 2. Export Function 
+### 2. Export Function 
 The export function exports the modified django database into a .csv file
 
-# Views
+### Views
 - Sightings: A view with links to edit the ids of squirrels or add a new squirrel to the database
 - Map : A map with markers corressponding to squirrel location using the leaflet library 
 - Stats: A view with intriguing statistical data on the squirrels in Central Park  
