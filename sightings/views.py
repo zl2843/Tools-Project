@@ -38,6 +38,8 @@ def add_squirrel(request):
         if form.is_valid():
             form.save()
             return redirect('/sightings')
+            return redirect(f'sightings/')
+
     else:
         form = SquirrelForm()
     context = {
