@@ -6,6 +6,5 @@ urlpatterns = [
         path('add/', views.add_squirrel, name='add'),
         path('stats/', views.stats),
         path('<squirrel_id>', views.edit_squirrel),
-        
         ]
 
