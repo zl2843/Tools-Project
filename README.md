@@ -32,7 +32,7 @@ Using this application, the user can
  Thus the tool acts as a comprehensive web based application to keep track of the behavior of squirrels in the given location
  
  ## Github Link 
-     git@github.com:zl2843/Squirrel-Tracker.git
+     git@github.com:zl2843/Tools-Project.git
  ## Link to the server 
  https://tools-for-analytics-254118.appspot.com/
      
