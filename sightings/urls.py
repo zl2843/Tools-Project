@@ -3,8 +3,8 @@ from . import views
 
 urlpatterns = [
         path('', views.all_squirrels),
-        path('add/', views.add_squirrel),
-        path('stats', views.stats),
+        path('add/', views.add_squirrel, name='add'),
+        path('stats/', views.stats),
         path('<squirrel_id>', views.edit_squirrel),
         
         ]

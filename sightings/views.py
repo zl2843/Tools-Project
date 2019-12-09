@@ -21,7 +21,7 @@ def edit_squirrel(request, squirrel_id):
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            return redirect('/sightings/')
+            return redirect('/sightings')
         else:
             return HttpResponse('Invalid Data! e.g. Please check the format of the Date')
     else:
