@@ -34,4 +34,5 @@ Using this application, the user can
  ## Github Link 
      git@github.com:zl2843/Squirrel-Tracker.git
  ## Link to the server 
+ https://tools-for-analytics-254118.appspot.com/
      
