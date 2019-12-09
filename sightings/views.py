@@ -92,4 +92,5 @@ def stats(request):
 
 def home(request):
     return render(request, 'sightings/home.html')
+
 # Create your views here.
